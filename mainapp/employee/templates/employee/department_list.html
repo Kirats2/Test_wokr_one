@@ -1,0 +1,36 @@
+{% extends "index.html" %}
+{% block title %}Список подразделений  {% endblock title %}
+
+{% block content%}
+
+<table class="table ">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Список подразделений</th>
+        </tr>
+    </thead>
+    {% for object in department_list %}
+    <tbody>
+        <tr>
+            <th scope="row">{{forloop.counter}}</th>
+            <td>
+                <div style="display: flex;flex-wrap: nowrap;justify-content: space-between;">
+                    <p style="text-decoration: none;">{{object.name}}</p>
+                    <a href="{% url 'department_delete_url' object.id %}">
+                        <button type="button" class="btn btn-outline-danger">Удалить</button>
+                    </a>
+
+                </div>
+            </td>
+        </tr>
+    </tbody>
+    {% endfor %}
+</table>
+<div style="text-align: end;">
+    <a href="{% url 'department_create_url' %}">
+        <button type="button" class="btn btn-outline-secondary">Создать подразделение</button>
+    </a>
+</div>
+
+{% endblock content %}

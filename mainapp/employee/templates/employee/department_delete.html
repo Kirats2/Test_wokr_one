@@ -1,0 +1,15 @@
+{% extends "index.html" %}
+{% block title %} Удалить подразделение {% endblock title %}
+
+{% block content%}
+
+    <form action="" method="post">
+        {% csrf_token %}
+        <p> Вы точно хотете удалить данное подразделение "{{object.name}}" ?</p>
+        <a href="{% url 'department_list_url'%}">
+            <button type="button" class="btn btn-outline-secondary" style="width:100px">Нет</button>
+        </a>
+        <button type="submit" class="btn btn-outline-secondary" style="width:100px">Да</button>
+    </form>
+
+{% endblock content %}

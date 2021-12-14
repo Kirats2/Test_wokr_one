@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+{% load bootstrap %}
+{% block title %} Добавить сотрудника {% endblock title %}
+
+{% block content%}
+
+<form action="{% url 'employee_create_url' %}" method="post">
+    {% csrf_token %}
+    <div style="width:50%;">
+        {{ form|bootstrap }}
+    </div>
+    <br>
+    <div style="width:50%;text-align: end;">
+        <button type="submit" class="btn btn-outline-secondary">Отправить</button>
+    </div>
+</form>
+
+{% endblock content %}

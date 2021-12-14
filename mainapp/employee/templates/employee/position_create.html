@@ -1,0 +1,18 @@
+{% extends "index.html" %}
+{% load bootstrap %}
+{% block title %}Список должностей {% endblock title %}
+
+{% block content%}
+
+<form action="{% url 'position_create_url' %}" method="post">
+    {% csrf_token %}
+    <div style="width:50%;">
+        {{ form|bootstrap }}
+    </div>
+    <br>
+    <div style="width:50%;text-align: end;">
+        <button type="submit" class="btn btn-outline-secondary">Создать</button>
+    </div>
+</form>
+
+{% endblock content %}

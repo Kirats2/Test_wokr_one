@@ -1,0 +1,29 @@
+{% extends "index.html" %}
+{% block title %} Карта сотрудника {% endblock title %}
+
+{% block content%}
+
+    <div class="card text-center">
+        <div class="card-header">
+            <h2>{{card.last_name}} {{card.name}} {{card.patronymic}}</h2>
+        </div>
+        <div class="card-body">
+
+            <h3 class="card-text">Подразделение : {{card.employment_department}}</h3>
+            <h3 class="card-text">Должность : {{card.employment_position}}</h3>
+            <h3 class="card-text"> Дата трудоустройства : {{card.employment_start_date}}</h3>
+            <h3 class="card-text"> Cтаж работы : {{card.get_experience}}</h3>
+
+        </div>
+        <div class="card-footer text-muted">
+                <a href="{% url 'employee_update_url' card.id %}" >
+                      <button type="button" class="btn btn-outline-secondary">Редактировать данные</button>
+                </a>
+                <a href="{% url 'employee_delete_url' card.id %}" >
+                    <button type="button" class="btn btn-outline-danger">Удалить</button>
+                </a>
+
+        </div>
+    </div>
+
+{% endblock content %}

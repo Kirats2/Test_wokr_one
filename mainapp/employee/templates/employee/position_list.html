@@ -1,0 +1,34 @@
+{% extends "index.html" %}
+{% block title %}Список должностей {% endblock title %}
+
+{% block content%}
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">#</th>
+        <th scope="col">Список должностей</th>
+    </tr>
+    </thead>
+    {% for object in position_list %}
+    <tbody>
+    <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>
+            <div style="display: flex;flex-wrap: nowrap;justify-content: space-between;">
+                <p>{{object.name}}</p>
+                <a href="{% url 'position_delete_url' object.id %}">
+                    <button type="button" class="btn btn-outline-danger">Удалить</button>
+                </a>
+
+            </div>
+        </td>
+    </tr>
+    </tbody>
+    {% endfor %}
+</table>
+<div style="text-align: end;">
+    <a href="{% url 'position_create_url' %}">
+        <button type="button" class="btn btn-outline-secondary">Создать должность</button>
+    </a>
+</div>
+{% endblock content %}
